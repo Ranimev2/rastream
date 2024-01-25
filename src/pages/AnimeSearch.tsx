@@ -30,7 +30,7 @@ const AnimeSearch = () => {
     setAnimes([]);
     setSearchParams({ q: searchInput });
     const response = (
-      await axios.get(`https://api.jikan.moe/v4/anime?q=${searchInput}`)
+      await axios.get(`https://otakudesu-zeta.vercel.app/api/otakudesu/ongiong?q=${searchInput}`)
     ).data;
 
     const { data } = response;
