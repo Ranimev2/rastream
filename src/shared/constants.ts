@@ -3,7 +3,7 @@ export const IMAGE_URL = "https://image.tmdb.org/t/p";
 export const EMBED_TO = "https://www.2embed.to/embed/tmdb";
 
 
-export const ANIME_API_URL = "https://api-consumet-org-six.vercel.app/"
+export const ANIME_API_URL = "https://api.jiken.moe/v4/anime"
 
 export const SUPPORTED_QUERY = {
   genre: [],
