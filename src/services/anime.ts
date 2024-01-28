@@ -27,7 +27,7 @@ export const getHomeAnimes = async()  :Promise<Animes> => {
 
 
 export const getAnimeRecommendedGenres = async () : Promise<getRecommendedAnimeGenreType> => {
-    const response = (await axios.get("https://api.jikan.moe/v4/genres/anime")).data
+    const response = (await axios.get("https://miku-api-v2.vercel.app/genres/anime")).data
     return response
 }
 
@@ -36,8 +36,8 @@ export const getAnimeFullDetails  =  async(id : number) : Promise<any> =>  {
    const response = await Promise.all([
         axios.get(`${ANIME_API_URL}/anime/${id}`) ,
         axios.get(`${ANIME_API_URL}/anime/${id}/characters `),
-        axios.get(`https://api.jikan.moe/v4/anime/${id}/recommendations`),
-        axios.get(`https://api.jikan.moe/v4/anime/${id}/reviews`)
+        axios.get(`https://miku-api-v2.vercel.app/nime/${id}/recommendations`),
+        axios.get(`https://miku-api-v2.vercel.app/anime/${id}/reviews`)
    ]) 
    
 
@@ -70,7 +70,7 @@ export const getAnimeFullDetails  =  async(id : number) : Promise<any> =>  {
 
 
 export const getRecentAnime = async() => {
-  const data = await (await (axios.get("https://api.jikan.moe/v4/recommendations/anime"))).data 
+  const data = await (await (axios.get("https://miku-api-v2.vercel.app/anime-list"))).data 
 
 
   return data
