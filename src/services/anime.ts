@@ -4,7 +4,7 @@ import { ANIME_API_URL } from "../shared/constants";
 
 
 export const getAnime = async ( page : number ): Promise< AnimeItempage> => {
-  const response = (await axios.get(`https://api.jikan.moe/v4/top/anime?page=${page}`)).data;
+  const response = (await axios.get(`https://miku-api-v2.vercel.app/thumbnail`)).data;
     
    return {
         ...response ,
@@ -15,7 +15,7 @@ export const getAnime = async ( page : number ): Promise< AnimeItempage> => {
  
 // Home animes are the top animes from jikan api
 export const getHomeAnimes = async()  :Promise<Animes> => {
-   const response = (await axios.get("https://api.jikan.moe/v4/top/anime")).data
+   const response = (await axios.get("https://miku-api-v2.vercel.app/thumbnail")).data
    
    const {data} = response
    
