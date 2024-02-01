@@ -13,7 +13,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 const AnimeSearch = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
-  const query = searchParams.get("q");
+  const query = keywordParams.get("q");
 
   const [searchInput, setSearchInput] = useState("");
   const [animes, setAnimes] = useState<Animes[]>([]);
@@ -25,27 +25,27 @@ const AnimeSearch = () => {
 
     setLoading(true);
 
-    if (!searchInput) return;
+    if (!keyword) return;
 
     setAnimes([]);
-    setSearchParams({ q: searchInput });
+    setkeywordParams({ q: keyword });
     const response = (
-      await axios.get(`https://miku-api-v2.vercel.app/search/?q=${searchInput}`)
+      await axios.get(`https://otakudesu-zeta.vercel.app.vercel.app/search/?q=${keyword}`)
     ).data;
 
     const { data } = response;
 
     setAnimes(data);
 
-    setSearchInput("");
+    setkeyword("");
 
     setLoading(false);
   };
 
   return (
     <>
-      {!query ? <Title value="Anime Search | Stream" /> : null}
-      {query ? <Title value={`Search | ${query} | Steam`} /> : null}
+      {!query ? <Title value="Anime Eror | Stream" /> : null}
+      {query ? <Title value={`Search | ${keyword} | Steam`} /> : null}
       <div className="flex justify-between items-center my-4 px-4 md:hidden ">
         <Link to="/">
           <div className="uppercase font-medium text-lg tracking-widest ">
@@ -76,10 +76,10 @@ const AnimeSearch = () => {
 
               <input
                 type="text"
-                ref={searchInputValue}
-                placeholder="Search..."
-                value={searchInput}
-                onChange={(e) => setSearchInput(e.target.value)}
+                ref={keywordValue}
+                placeholder="keyword..."
+                value={keyword}
+                onChange={(e) => setkeyword(e.target.value)}
                 // autoFocus={autoFocus}
                 className="w-full pl-14 pr-7 outline-none  bg-transparent placeholder-white py-4 text-white "
               />
@@ -111,10 +111,10 @@ const AnimeSearch = () => {
             </div>
           ) : null}
 
-          {animes && !loading && query && animes.length === 0 && (
+          {animes && !loading && keyword && animes.length === 0 && (
             <div className=" flex flex-col tw-flex-center mt-40 text-center text-lg ">
               {" "}
-              <span className=" text-primary text-[300px]"> 404</span>
+              <span className=" text-primary text-[300px]"> eror tolol:v😹</span>
               <span className="mt-32 text-[50px] font-light">
                 {" "}
                 Anime not found{" "}
